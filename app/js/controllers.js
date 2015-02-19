@@ -6,10 +6,10 @@ angularMovieApp.controller("homeController" ,function ($scope) {
 
 });
 
-angularMovieApp.controller("moviesController" ,function ($scope, $http) {
+angularMovieApp.controller("moviesController" ,function ($scope, $http, Movies) {
 
-    $http.get('/server/api/movies').success(function(resp){
-        $scope.movies = resp;
+    Movies.fetch().then(function(data){
+        $scope.movies = data;
     });
 
     $scope.deleteMovie = function(index){
@@ -22,7 +22,7 @@ angularMovieApp.controller("moviesController" ,function ($scope, $http) {
 
 });
 
-angularMovieApp.controller('editMovieController', function($scope, $http, $routeParams, $location){
+angularMovieApp.controller('editMovieController', function($scope, $http, $routeParams, $location, Movies){
 
     var movieId = $routeParams.id;
 
@@ -31,7 +31,7 @@ angularMovieApp.controller('editMovieController', function($scope, $http, $route
     });
 
     $scope.updateMovie = function(movie){
-       $http.put('/server/api/movies', movie)
+        Movies.save(movie)
            .success(function(){
                $location.path('/movies');
            })
@@ -41,13 +41,13 @@ angularMovieApp.controller('editMovieController', function($scope, $http, $route
     };
 });
 
-angularMovieApp.controller("movieFormController" ,function ($scope, $http) {
+angularMovieApp.controller("movieFormController" ,function ($scope, $http, Movies) {
 
     $scope.class = "error";
 
     $scope.addMovie = function(movie){
 
-        $http.post('/server/api/movies', movie)
+        Movies.save(movie)
             .success(function(){
                 $scope.movies.push(movie);
                 $scope.movie = {};

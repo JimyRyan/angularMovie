@@ -2,6 +2,11 @@
 
 var angularMovieApp = angular.module('angularMovieApp', ['ngRoute']);
 
+angularMovieApp.value('API_ROOT_URL', '/server/api/');
+
+// Modifiable au moment de la configuration
+angularMovieApp.constant('API_ROOT_URL', '/server/api/');
+
 angularMovieApp.config(function($routeProvider) {
     $routeProvider
         .when('/home', {
