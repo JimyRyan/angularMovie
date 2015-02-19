@@ -1,23 +1,24 @@
 <!-- header-->
 <header class="page-header">
-    <h1>Ma vidéothèque <small>{{movies.length}} films</small>
+    <h1>Ma vidéothèque <small>{{filteredMovies.length}} trouvés sur {{movies.length}} films</small>
         <button class="btn btn-primary" data-toggle="modal" data-target="#movie-form-modal">Ajouter un film</button>
     </h1>
 </header>
 
 <!-- barre d'actions -->
 <section class="well form-inline">
-    <input class="span5" type="text" placeholder="Rechercher">
+    <input class="span5" type="text" placeholder="Rechercher par titre" ng-model="search.title">
+    <input class="span5" type="text" placeholder="Rechercher par année" ng-model="search.releaseYear">
     <section class="pull-right">
-        <button class="btn btn-info">Trier par année</button>
-        <button class="btn btn-info">Trier par titre</button>
+        <button class="btn btn-info" ng-click="predicate= 'releaseYear'; reverse=(predicate=='releaseYear' ? !reverse : false)">Trier par année</button>
+        <button class="btn btn-info" ng-click="predicate= 'title'; reverse=(predicate=='title' ? !reverse : false)">Trier par titre</button>
     </section>
 </section>
 
 
 <!-- liste des films -->
 <ul class="thumbnails">
-    <li ng-repeat="movie in movies" class="span12">
+    <li ng-repeat="movie in (movies | filter:search | orderBy:(predicate ? predicate : 'title'):reverse) as filteredMovies" class="span12">
         <img ng-src="{{movie.poster}}" class="span2">
         <div class="caption">
             <h3>{{movie.title}}
