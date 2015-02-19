@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('myApp').controller("MovieFormController" ,function ($scope, Movie) {
+angular.module('myApp').controller("MovieFormController" ,['$scope', 'Movie', function ($scope, Movie) {
 
     $scope.addMovie = function(movie) {
 
@@ -15,4 +15,4 @@ angular.module('myApp').controller("MovieFormController" ,function ($scope, Movi
             });
 
     };
-});
+}]);

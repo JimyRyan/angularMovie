@@ -1,7 +1,8 @@
 "use strict";
 
-angular.module('myApp').controller("MoviesController" ,function ($scope, Movie) {
+angular.module('myApp').controller("MoviesController" , ['$scope', 'Movie', function ($scope, Movie) {
 
+    // Movies list
     $scope.value = true;
 
     Movie.fetch().success(function(resp){
@@ -22,4 +23,4 @@ angular.module('myApp').controller("MoviesController" ,function ($scope, Movie) 
         $scope.value = !$scope.value;
     };
 
-});
+}]);

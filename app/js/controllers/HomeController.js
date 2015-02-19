@@ -1,7 +1,7 @@
 "use strict";
 
-angular.module('myApp').controller("HomeController" ,function ($scope) {
+angular.module('myApp').controller("HomeController", ['$scope', function ($scope) {
 
     $scope.user = 'Tito toto';
 
-});
+}]);

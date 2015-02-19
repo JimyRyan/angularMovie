@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('myApp').controller('EditMovieController', function($scope, Movie, $routeParams, $location){
+angular.module('myApp').controller('EditMovieController', ['$scope', 'Movie', '$routeParams', '$location', function($scope, Movie, $routeParams, $location){
 
     var movieId = $routeParams.id;
 
@@ -17,4 +17,4 @@ angular.module('myApp').controller('EditMovieController', function($scope, Movie
                 console.log(resp);
             });
     };
-});
+}]);
