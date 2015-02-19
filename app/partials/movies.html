@@ -10,8 +10,8 @@
     <input class="span5" type="text" placeholder="Rechercher par titre" ng-model="search.title">
     <input class="span5" type="text" placeholder="Rechercher par année" ng-model="search.releaseYear">
     <section class="pull-right">
-        <button class="btn btn-info" ng-click="predicate= 'releaseYear'; reverse=(predicate=='releaseYear' ? !reverse : false)">Trier par année</button>
-        <button class="btn btn-info" ng-click="predicate= 'title'; reverse=(predicate=='title' ? !reverse : false)">Trier par titre</button>
+        <button class="btn btn-info" ng-click="orderMovie('releaseYear');">Trier par année</button>
+        <button class="btn btn-info" ng-click="orderMovie('title');">Trier par titre</button>
     </section>
 </section>
 

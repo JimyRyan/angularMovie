@@ -20,6 +20,17 @@ angularMovieApp.controller("moviesController" ,function ($scope, Movie) {
         );
     };
 
+    $scope.orderMovie = function(order) {
+
+        if ($scope.predicate === order) {
+            $scope.reverse = !$scope.reverse;
+        } else {
+            $scope.reverse = false;
+        }
+
+        $scope.predicate = order;
+    };
+
 });
 
 angularMovieApp.controller('editMovieController', function($scope, Movie, $routeParams, $location){
