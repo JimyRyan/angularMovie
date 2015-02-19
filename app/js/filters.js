@@ -1,5 +1,6 @@
 "use strict";
 
+/*
 angularMovieApp.filter('stars', function () {
 
     var STARS = {
@@ -25,3 +26,4 @@ angularMovieApp.filter('poster', function () {
         }
     };
 });
+*/

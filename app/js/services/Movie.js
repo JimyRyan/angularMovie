@@ -1,7 +1,6 @@
 "use strict";
 
-/*
-angularMovieApp.factory("Movie", function ($http) {
+angular.module('myApp').factory("Movie", function ($http) {
     var API_URI = '/server/api/movies';
 
     return {
@@ -23,10 +22,9 @@ angularMovieApp.factory("Movie", function ($http) {
         },
 
         update : function(movie) {
-             return $http.put('/server/api/movies', movie);
+            return $http.put('/server/api/movies', movie);
         }
 
     };
 
 });
-*/

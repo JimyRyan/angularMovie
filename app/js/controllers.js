@@ -1,5 +1,6 @@
 "use strict";
 
+/*
 angularMovieApp.controller("homeController" ,function ($scope) {
 
     $scope.user = 'Thierry LAU';
@@ -64,3 +65,4 @@ angularMovieApp.controller("movieFormController" ,function ($scope, Movie) {
 
     };
 });
+*/

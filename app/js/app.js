@@ -1,22 +1,59 @@
 "use strict";
 
-var angularMovieApp = angular.module('angularMovieApp', ['ngRoute']);
+/*
+var myApp = angular.module('myApp', ['ngRoute']);
 
-angularMovieApp.config(function($routeProvider) {
+myApp.config(function($routeProvider) {
     $routeProvider
         .when('/home', {
             templateUrl: 'partials/home.html',
-            controller : 'homeController'
+            controller : 'HomeController'
         })
         .when('/movies', {
             templateUrl: 'partials/movies.html',
-            controller : 'moviesController'
+            controller : 'MoviesController'
         })
         .when('/movies/edit/:id', {
             templateUrl: 'partials/edit.html',
-            controller: 'editMovieController'
+            controller: 'EditMovieController'
         })
         .otherwise({
             redirectTo: '/home'
         });
 });
+*/
+
+
+
+(function() {
+
+    'use strict';
+
+    angular.module('myApp', [
+        'ngRoute'
+    ]);
+
+    angular.module('myApp').config(function($routeProvider) {
+        $routeProvider
+            .when('/home', {
+                templateUrl: 'partials/home.html',
+                controller : 'HomeController'
+            })
+            .when('/movies', {
+                templateUrl: 'partials/movies.html',
+                controller : 'MoviesController'
+            })
+            .when('/movies/edit/:id', {
+                templateUrl: 'partials/edit.html',
+                controller: 'EditMovieController'
+            })
+            .otherwise({
+                redirectTo: '/home'
+            });
+    });
+
+    angular.module('myApp').run(function () {
+        //console.log('run !!!');
+    });
+
+})();
