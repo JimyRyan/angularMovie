@@ -26,9 +26,6 @@ angularMovieApp.controller("moviesController" ,function ($scope, Movie) {
 
     $scope.toogleView = function() {
       $scope.value = !$scope.value;
-
-        // Changer l'icon du bouton
-        //list >> grid
     };
 
 });
