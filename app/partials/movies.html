@@ -31,10 +31,11 @@
         <h3>Ajouter un film</h3>
     </header>
     <section class="modal-body">
-        <form class="form-horizontal">
-            <div class="control-group">
+        <form class="form-horizontal" novalidate name="myForm">
+            <div class="control-group" ng-class="{ error : myForm.title.$error.required && myForm.title.$dirty }">
                 <label class="control-label">Titre :</label>
-                <input type="text" ng-model="movie.title">
+                <input type="text" ng-model="movie.title" name="title" required>
+                <div class="controls" ng-show=" myForm.title.$error.required && myForm.title.$dirty"><span class="help-block">Veillez saisir un titre</span></div>
             </div>
             <div class="control-group">
                 <label class="control-label">Année de sortie :</label>
@@ -52,14 +53,15 @@
                 <label class="control-label">Synopsis :</label>
                 <textarea ng-model="movie.synopsis"></textarea>
             </div>
-            <div class="control-group">
+            <div class="control-group" ng-class="{ error : (myForm.rate.$error.$invalid) && myForm.title.$dirty }">
                 <label class="control-label">Note :</label>
-                <input type="number" placeholder="entre 1 et 5" ng-model="movie.rate">
-            </div>
+                <input type="number" placeholder="entre 1 et 5" ng-model="movie.rate" name="rate" min="1" max="5">
+                <div class="controls" ng-show=" (myForm.rate.$error.min) && myForm.rate.$dirty"><span class="help-block">La note doit être comprise entre >= 1</span></div>
+                <div class="controls" ng-show=" (myForm.rate.$error.max) && myForm.rate.$dirty"><span class="help-block">La note doit être comprise entre <= 5</span></div>            </div>
         </form>
     </section>
     <footer class="modal-footer">
         <button data-dismiss="modal" class="btn btn-danger btn-small">Annuler</button>
-        <button data-dismiss="modal" class="btn btn-success" ng-click="addMovie(movie)">Ajouter</button>
+        <button data-dismiss="modal" class="btn btn-success" ng-click="addMovie(movie)" ng-disabled=" myForm.$invalid ">Ajouter</button>
     </footer>
 </div>

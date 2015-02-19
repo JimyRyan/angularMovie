@@ -4,10 +4,11 @@
 </header>
 
 <section>
-    <form class="form-horizontal">
+    <form class="form-horizontal" novalidate name="myForm">
         <div class="control-group">
             <label class="control-label">Titre :</label>
-            <input type="text" ng-model="movie.title">
+            <input type="text" ng-model="movie.title" name="title" required>
+            <div class="controls" ng-show="myForm.title.$error.required"><span class="help-block">Veillez saisir un titre</span></div>
         </div>
         <div class="control-group">
             <label class="control-label">Année de sortie :</label>
@@ -27,11 +28,11 @@
         </div>
         <div class="control-group">
             <label class="control-label">Note :</label>
-            <input type="number" placeholder="entre 1 et 5" ng-model="movie.rate">
+            <input type="range" placeholder="entre 1 et 5" ng-model="movie.rate" name="rate" min="1" max="5" step="1">
         </div>
         <footer class="form-actions">
             <a href="#/movies" class="btn btn-danger btn-small">Annuler</a>
-            <button class="btn btn-success" ng-click="updateMovie(movie)">Ajouter</button>
+            <button class="btn btn-success" ng-click="updateMovie(movie)" ng-disabled="!myForm.$valid">Ajouter</button>
         </footer>
     </form>
 </section>
