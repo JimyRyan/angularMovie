@@ -9,14 +9,14 @@
 <section class="well form-inline">
     <input class="span5" type="text" ng-model="search" placeholder="Rechercher">
     <section class="pull-right">
-        <button class="btn btn-success" ng-click="value = !value"><i class="icon-th-list icon-white"></i></button>
+        <button class="btn btn-success" ng-click="toogleView()"><i class="icon-th-list icon-white"></i></button>
         <button class="btn btn-info" ng-click="tri = 'releaseYear'; reverse = !reverse">Trier par année</button>
         <button class="btn btn-info" ng-click="tri = 'title'; reverse = !reverse">Trier par titre</button>
     </section>
 </section>
 
 
-<section ng-switch on="value" ng-init="value=true">
+<section ng-switch on="value">
 
 <!-- liste des films en liste -->
 <ul class="thumbnails" ng-switch-when="true">

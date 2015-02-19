@@ -8,6 +8,8 @@ angularMovieApp.controller("homeController" ,function ($scope) {
 
 angularMovieApp.controller("moviesController" ,function ($scope, Movie) {
 
+    $scope.value = true;
+
     Movie.fetch().success(function(resp){
         $scope.movies = resp;
     });
@@ -20,6 +22,13 @@ angularMovieApp.controller("moviesController" ,function ($scope, Movie) {
                 $scope.movies.splice(index, 1);
             }
         );
+    };
+
+    $scope.toogleView = function() {
+      $scope.value = !$scope.value;
+
+        // Changer l'icon du bouton
+        //list >> grid
     };
 
 });
